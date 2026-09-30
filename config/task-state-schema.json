@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "javis-task-state-v0.2",
+  "title": "Javis Task State (design §8)",
+  "type": "object",
+  "required": ["task_id", "state", "goal", "created_at", "updated_at"],
+  "additionalProperties": true,
+  "properties": {
+    "task_id": { "type": "string" },
+    "state": {
+      "type": "string",
+      "enum": [
+        "created",
+        "running",
+        "waiting_user",
+        "paused",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "goal": { "type": "string" },
+    "entry": { "type": ["string", "null"] },
+    "agent": { "type": ["string", "null"], "default": "gpt_star" },
+    "model": { "type": ["string", "null"] },
+    "session_id": { "type": ["string", "null"] },
+    "created_at": { "type": "string" },
+    "updated_at": { "type": "string" },
+    "artifact_refs": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "risk": { "type": ["string", "null"] },
+    "approval_refs": { "type": "array", "items": { "type": "string" } },
+    "failure_reason": { "type": ["string", "null"] },
+    "memory_write_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "未写入则保持空数组"
+    },
+    "attempt": { "type": "integer", "minimum": 0, "default": 0, "description": "0表示已建任务但尚未启动；每次实际执行从1递增" }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "javis-raw-event-v0.2",
+  "title": "Javis RAW Event (minimal fields from design §7.2)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "event_id",
+    "occurred_at",
+    "captured_at",
+    "event_type"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string", "const": "javis-raw-event-1" },
+    "event_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": ["string", "null"] },
+    "session_id": { "type": ["string", "null"] },
+    "turn_id": { "type": ["string", "null"] },
+    "source_event_id": { "type": ["string", "null"], "description": "原生事件标识；接口未提供时为null" },
+    "native_event_id": { "type": ["string", "null"], "description": "仅兼容旧事件；新事件使用source_event_id" },
+    "parent_event_id": { "type": ["string", "null"] },
+    "occurred_at": { "type": ["string", "null"], "description": "ISO-8601；未知保持null，不用采集时间代替" },
+    "captured_at": { "type": "string" },
+    "timezone": { "type": ["string", "null"] },
+    "entry": { "type": ["string", "null"], "description": "e.g. codex_cli" },
+    "agent": { "type": ["string", "null"], "description": "e.g. gpt_star" },
+    "model": { "type": ["string", "null"] },
+    "execution_path": { "type": ["string", "null"], "description": "认证类型及调用路径；不含秘密" },
+    "event_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "包括user_input/model_output/tool_call/tool_result/status/correction/approval/error/file_snapshot/task_lifecycle/codex_stream_event/artifact_delivery；允许兼容新的正式事件类型"
+    },
+    "payload": { "type": ["object", "null"] },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": { "type": "string" },
+          "path": { "type": ["string", "null"] },
+          "url": { "type": ["string", "null"] },
+          "sha256": { "type": ["string", "null"] }
+        }
+      }
+    },
+    "completeness": {
+      "type": ["string", "null"],
+      "enum": ["complete", "full", "partial", "missing", null],
+      "description": "新事件使用complete/partial/missing；full仅兼容旧记录"
+    },
+    "missing_reason": { "type": ["string", "null"] },
+    "risk": { "type": ["string", "null"] },
+    "approval_ref": { "type": ["string", "null"] },
+    "supersedes": { "type": ["string", "null"] },
+    "contradicts": { "type": ["string", "null"] }
+  },
+  "description": "未知值为 null 并说明原因，不猜测模型或时间。禁止写入 secrets。"
+}

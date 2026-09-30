@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="400" viewBox="0 0 1440 400">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#17293c"/></linearGradient></defs>
+<rect width="1440" height="400" rx="20" fill="url(#bg)"/>
+<circle cx="1290" cy="45" r="220" fill="#67dfc4" opacity=".045"/>
+<text x="72" y="75" fill="#74e1c7" font-family="Segoe UI,Arial,sans-serif" font-size="15" letter-spacing="4">LOCAL-FIRST AI WORKSPACE</text>
+<text x="66" y="180" fill="#f4f7fc" font-family="Segoe UI,Arial,sans-serif" font-size="92" font-weight="700" letter-spacing="-4">Javis</text>
+<text x="72" y="232" fill="#c8d6e8" font-family="Segoe UI,Arial,sans-serif" font-size="29">Your AI Team, With Memory.</text>
+<text x="72" y="319" fill="#8fa6be" font-family="Segoe UI,Arial,sans-serif" font-size="18">Role-based work. Persistent memory. Traceable execution.</text>
+<g font-family="Segoe UI,Arial,sans-serif" font-size="18" text-anchor="middle">
+<path d="M887 133 L1025 201 L1190 133 M1025 201 L1025 288" stroke="#48758a" stroke-width="2" fill="none"/>
+<rect x="797" y="85" width="180" height="76" rx="14" fill="#162e3c" stroke="#426477"/><text x="887" y="131" fill="#dce7f3">AI roles</text>
+<rect x="1100" y="85" width="180" height="76" rx="14" fill="#162e3c" stroke="#426477"/><text x="1190" y="131" fill="#dce7f3">Task records</text>
+<rect x="935" y="177" width="180" height="64" rx="14" fill="#67dfc4"/><text x="1025" y="217" fill="#102839" font-weight="700">Javis</text>
+<rect x="935" y="274" width="180" height="64" rx="14" fill="#162e3c" stroke="#426477"/><text x="1025" y="314" fill="#dce7f3">Memory</text>
+</g></svg>

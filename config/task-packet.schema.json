@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "JavisTaskPacket",
+  "type": "object",
+  "required": ["task_id", "from_agent_id", "role_id", "goal"],
+  "properties": {
+    "task_id": {"type":"string","pattern":"^[A-Za-z0-9_-]{1,160}$"},
+    "from_agent_id": {"type":"string"},
+    "role_id": {"type":"string","pattern":"^[A-Za-z0-9_-]{1,160}$"},
+    "goal": {"type":"string","minLength":1},
+    "original_user_input": {"type":"string","description":"Exact forwarded original input, distinct from a task summary; credentials are removed before persistence and inference."},
+    "entry": {"type":"string"},
+    "source_event_id": {"type":["string","null"]},
+    "mode": {"type":"string","enum":["run","continue","resume","checkpoint"],"default":"run"},
+    "privacy_level": {"type":"string","description":"Explicit L4 blocks external inference; no local L4 model is connected."},
+    "permission": {"type":"string","enum":["R0","R1","R2","R3"],"default":"R1"},
+    "approval_refs": {"type":"array","items":{"type":"string"}},
+    "inputs": {"type":"object","properties":{"files":{"type":"array","items":{"oneOf":[{"type":"string"},{"type":"object","required":["path"],"properties":{"path":{"type":"string"}}}]}}}},
+    "cwd_hint": {"type":"string","description":"Informational only; execution cwd is resolved from role_id."}
+  }
+}

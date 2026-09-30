@@ -1,0 +1,9 @@
+[project]
+name = "javis-memory-adapter"
+version = "0.1.0"
+description = "Minimal Javis Memory Adapter over Graphiti+Neo4j"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.setuptools.packages.find]
+include = ["javis_memory_adapter*"]

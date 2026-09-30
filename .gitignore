@@ -1,0 +1,84 @@
+# Runtime data and user content stay local.
+/raw/
+/state/
+/memory/
+/lab/
+/backups/
+/workspace/tasks/
+/workspace/inbox/
+/workspace/**/outbox/
+/workspace/**/profiles/
+/config/paths.json
+/config/routing.json
+/config/backup-schedule.json
+/config/runtime-versions.lock.json
+/scripts/windows/config/backup-schedule.json
+.env
+.env.*
+!.env.example
+auth.json
+.codex/
+.ssh/
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+*.jsonl
+*.sqlite*
+*.db
+*.log
+*.pid
+*.err
+*.out
+*.bak*
+*.tar*
+*.tgz
+*.zip
+*.pem
+*.key
+*.p12
+
+# Personal and service vaults are independently encrypted and backed up.
+# Git ignore protects names only; never force-add renamed vault/key material.
+[Jj][Aa][Vv][Ii][Ss]-[Vv][Aa][Uu][Ll][Tt]/
+*.[Kk][Dd][Bb][Xx]
+*.[Kk][Dd][Bb][Xx].*
+*.[Kk][Dd][Bb][Xx]-*
+*.[Kk][Dd][Bb][Xx]~*
+*.[Kk][Dd][Bb][Xx]_*
+*.[Kk][Dd][Bb][Xx] *
+*.[Kk][Dd][Bb][Xx]:*
+*.[Kk][Dd][Bb]
+*.[Kk][Dd][Bb].*
+*.[Kk][Dd][Bb]-*
+*.[Kk][Dd][Bb]~*
+*.[Kk][Dd][Bb]_*
+*.[Kk][Dd][Bb] *
+*.[Kk][Dd][Bb]:*
+*.[Kk][Ee][Yy][Xx]
+*.[Kk][Ee][Yy][Xx].*
+*.[Kk][Ee][Yy][Xx]-*
+*.[Kk][Ee][Yy][Xx]~*
+*.[Kk][Ee][Yy][Xx]_*
+*.[Kk][Ee][Yy][Xx] *
+*.[Kk][Ee][Yy][Xx]:*
+*.pfx
+
+# Private Grok profile snapshots remain local.
+/config/grok-descriptions/
+
+# Public source release: never commit local credentials or private content.
+/secrets/
+/tmp/
+/life-notebook/
+/config/grok-descriptions/
+/config/memory-model.json
+/config/memory-pipeline.json
+/config/outbound-mail.lock.json
+/tools/neo4j/
+/tools/jdk-21/
+/tools/flowise/node_modules/
+/dist/
